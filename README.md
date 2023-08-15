@@ -1,7 +1,7 @@
 # wndap360
 Netgear WNDAP360 OpenWRT
 
-After upgrade, MAC addr will be hardcoded in different place in bdf. Default MAC is:
+After upgrade, LAN MAC addr will be hardcoded in different place in ART. Default MAC dhcp entry:
 ```
 host ap_temp {
  hardware ethernet 00:03:7F:E0:00:96;
@@ -9,8 +9,8 @@ host ap_temp {
 }
 ```
 
-Edit Lan MAC address:
-Figure out new LAN MAC address:
+# Edit Lan MAC address
+Edit DTS to comment out ART partition read-only flag. Figure out new LAN MAC address:
 ```ifconfig | grep HWaddr```
 Pick an unused middle entry..
 
