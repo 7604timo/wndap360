@@ -11,7 +11,7 @@ host ap_temp {
 
 # Edit Lan MAC address
 Edit DTS to comment out ART partition read-only flag. Figure out new LAN MAC address:
-```ifconfig | grep HWaddr```
+```ifconfig -a | grep HWaddr```
 Pick an unused middle entry..
 
 ```cat /proc/mtd
