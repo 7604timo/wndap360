@@ -24,7 +24,8 @@ reboot
 ```
 # Make sure LAN port comes up at 1Gbps
 Edit DTS to make sure eth0 section looks like this:
-```&eth0 {
+```
+&eth0 {
         status = "okay";
 
         phy-mode = "rgmii";
