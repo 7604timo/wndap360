@@ -46,3 +46,21 @@ Edit DTS top section (above 'aliases'):
                 bootargs = "console=ttyS0,9600";
         };
 ```
+
+# Make power LED running state 'green'
+Modify DTS to add green-led definition to 'leds' section:
+```
+led_power_green: power_green {
+                        label = "green:power";
+                        gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
+                };
+```
+Change 'aliases' section to make 'led-running' the new colour:
+```
+        aliases {
+                led-boot = &led_power_orange;
+                led-failsafe = &led_power_orange;
+                led-running = &led_power_green;
+                led-upgrade = &led_power_orange;
+        };
+```
