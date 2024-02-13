@@ -8,6 +8,7 @@ host ap_temp {
  fixed-address 192.168.1.12;
 }
 ```
+DTS: ```target/linux/ath79/dts/ar7161_netgear_wndap360.dts```
 
 # Edit Lan MAC address
 Edit DTS to comment out ART partition read-only flag. Figure out new LAN MAC address:
