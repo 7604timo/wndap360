@@ -38,3 +38,11 @@ Edit DTS to make sure eth0 section looks like this:
         pll-data = <0x11110000 0x00001099 0x00991099>;
 };
 ```
+
+# Make sure console port stays at 9600
+Edit top section (above 'aliases'):
+```
+        chosen {
+                bootargs = "console=ttyS0,9600";
+        };
+```
