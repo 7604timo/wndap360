@@ -64,3 +64,21 @@ Change 'aliases' section to make 'led-running' the new colour:
                 led-upgrade = &led_power_orange;
         };
 ```
+
+# Make sure the owl-loader kmod is loaded:
+Edit ```target/linux/ath79/image/generic.mk``` and search for ```wndap360```, then add in the ```kmod-owl-loader``` package to the DEVICE_PACKAGES list:
+```
+define Device/netgear_wndap360
+  $(Device/netgear_generic)
+  SOC := ar7161
+  DEVICE_MODEL := WNDAP360
+  DEVICE_PACKAGES := kmod-leds-reset kmod-owl-loader
+  IMAGE_SIZE := 7744k
+  BLOCKSIZE := 256k
+  KERNEL := kernel-bin | append-dtb | gzip | uImage gzip
+  KERNEL_INITRAMFS := kernel-bin | append-dtb | uImage none
+  IMAGES := sysupgrade.bin
+  IMAGE/sysupgrade.bin := append-kernel | pad-to 64k | append-rootfs | pad-rootfs | \
+        check-size | append-metadata
+endef
+```
